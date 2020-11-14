@@ -10,7 +10,7 @@ const maxFreq = minFreq + freqRange
 
 function randomMinFreq(freqRange: number): number {
   const shift = Math.round(freqRange * Math.random())
-  return 440 - shift
+  return 442 - shift
 }
 
 function sliderPosToFreq(sliderPos: number): number {
@@ -20,9 +20,9 @@ function sliderPosToFreq(sliderPos: number): number {
 }
 
 function buildTweetIntentURL(freq: number): string {
-  const text = `私の 440Hz は『${freq}Hz』でした！あなたも音感をテストしよう！`
+  const text = `私の 442Hz は『${freq}Hz』でした！あなたも音感をテストしよう！`
   const url = window.location.href.split("?")[0]
-  const hashtags = "440Hzを当てるやつ"
+  const hashtags = "442Hzを当てるやつ"
 
   const usp = new URLSearchParams()
   usp.set("text", text)
@@ -72,7 +72,7 @@ function UI({ updateOscillator }: Props) {
   return (
     <div className={style.container}>
       <Typography variant="h5" component="h1" className={style.title}>
-        440Hzを当てるやつ！
+        442Hzを当てるやつ！
       </Typography>
       <Slider
         value={sliderPos}
@@ -99,9 +99,21 @@ function UI({ updateOscillator }: Props) {
         ※消音モードをオフにしてください
       </Typography>
       <Typography className={style.repo} variant="caption">
-        <Link href="https://github.com/hashedhyphen/pitch-test">
+        <Link href="https://github.com/OTRAY271/pitch-test">
           GitHub Repo
         </Link>
+      </Typography>
+      <Typography className={style.repo} variant="caption">
+        Thanks to <Link href="https://github.com/hashedhyphen">hashedhyphen</Link> for the original project <Link href="https://github.com/hashedhyphen/pitch-test">"440Hzを当てるやつ"</Link>.
+      </Typography>
+      <Typography className={style.repo} variant="caption">
+        Copyright (c) 2020 hashedhyphen
+      </Typography>
+      <Typography className={style.repo} variant="caption">
+        Released under the MIT license
+      </Typography>
+      <Typography className={style.repo} variant="caption">
+        <Link href="https://opensource.org/licenses/mit-license.php">https://opensource.org/licenses/mit-license.php</Link>
       </Typography>
     </div>
   )
